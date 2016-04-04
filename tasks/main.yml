@@ -1,0 +1,19 @@
+---
+
+  - name: Install curl
+    apt: name=curl state=present
+
+  - name: Get datastax repo_key
+    shell: curl -L http://debian.datastax.com/debian/repo_key | sudo apt-key add -
+    register: apt_key_out
+
+  - name: Add datastax repo
+    apt_repository: repo='deb http://debian.datastax.com/community stable main' state=present
+
+  - name: Install openjdk 7
+    apt: name=openjdk-7-jre-headless state=present
+
+  - name: Install Opscenter
+    apt: name=opscenter state=present
+    notify:
+      - Start opscenter
