@@ -1,9 +1,9 @@
 ---
   - name: Stop opscenter
-    service: name=opscenter state=stopped
+    service: name=opscenterd state=stopped
 
   - name: Start opscenter
-    service: name=opscenter state=started
+    service: name=opscenterd state=started
 
   - name: Restart opscenter
-    service: name=opscenter state=restarted
+    service: name=opscenterd state=restarted
