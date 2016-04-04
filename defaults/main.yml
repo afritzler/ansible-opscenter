@@ -1,2 +1,3 @@
 ---
-# defaults file for ansible-opscenter
+  cassandra_hosts: ''
+  cluser_name: 'my_cluster'

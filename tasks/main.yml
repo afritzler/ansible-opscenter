@@ -13,7 +13,12 @@
   - name: Install openjdk 7
     apt: name=openjdk-7-jre-headless state=present
 
-  - name: Install Opscenter
+  - name: Install opscenter
     apt: name=opscenter state=present
     notify:
-      - Start opscenter
+      - Stop opscenter
+
+  - name: Configure opscenter
+    template: src=cluster.conf dest=/etc/opscenter/{{cluster_name}}.conf
+    notify:
+      - Restart opscenter
