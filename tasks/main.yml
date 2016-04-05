@@ -19,6 +19,6 @@
       - Stop opscenter
 
   - name: Configure opscenter
-    template: src=cluster.conf dest=/etc/opscenter/{{cassandra_cluster_name}}.conf
+    template: src=cluster.conf dest=/etc/opscenter/clusters/{{cassandra_cluster_name}}.conf
     notify:
       - Restart opscenter
