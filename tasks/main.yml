@@ -18,6 +18,9 @@
     notify:
       - Stop opscenter
 
+  - name: Create cluster conf dir
+    file: path=/etc/opscenter/clusters/ state=directory mode=0755
+
   - name: Configure opscenter
     template: src=cluster.conf dest=/etc/opscenter/clusters/{{cassandra_cluster_name}}.conf
     notify:
